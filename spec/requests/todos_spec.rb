@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Todos", type: :request do
+RSpec.describe 'Todos', type: :request do
   let!(:todos) { create_list(:todo, 10) }
   let(:todo_id) { todos.first.id }
 
-  describe "GET /todos" do
+  describe 'GET /todos' do
     before { get '/todos' }
 
     it 'returns todos' do
       expect(json).not_to be_empty
       expect(json.size).to eq(10)
     end
-    
+
     it 'returns status code 200' do
       expect(response).to have_http_status(200)
     end
@@ -83,7 +85,7 @@ RSpec.describe "Todos", type: :request do
       end
 
       it 'returns status code 204' do
-        expect(response.to have_http_status(204))
+        expect(response.to(have_http_status(204)))
       end
     end
   end
