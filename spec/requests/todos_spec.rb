@@ -21,7 +21,7 @@ RSpec.describe 'Todos', type: :request do
 
   describe 'GET todos/:id' do
     before { get "/todos/#{todo_id}" }
-
+    
     context 'when the record exists' do
       it 'returns the todo' do
         expect(json).not_to be_empty
